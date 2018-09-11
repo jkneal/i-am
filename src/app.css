@@ -1,0 +1,41 @@
+body {
+  background-color: #000000;
+}
+
+.button {
+  margin: 0;
+  background-color: #87929f;
+}
+
+.sign-header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+}
+
+.drumhead-container {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+.drumhead {
+  flex: 1;
+  text-align: center;
+}
+
+.drumhead svg {
+  height: 95vh;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  color:#87929f;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
