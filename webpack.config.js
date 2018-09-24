@@ -31,10 +31,7 @@ module.exports = {
     },
     resolve: {
       extensions: ['', '.js', '.jsx'],
-      fallback: NODE_PATH,
-      alias: {
-        "jquery": path.join(SOURCE_PATH, "./jquery-stub.js")
-      }
+      fallback: NODE_PATH
     },
     resolveLoader: {
       fallback: NODE_PATH
@@ -42,7 +39,8 @@ module.exports = {
     module: {
         loaders: [
             {test: /\.(js|jsx)$/, loaders: ['babel', 'babel-loader'], exclude: /node_modules/},
-            {test: /\.css$/, loaders: ['style', 'css']}
+            {test: /\.css$/, loaders: ['style', 'css']},
+            {test: /\.jpg$/, loader: 'url-loader'},
         ]
     },
     plugins: [
@@ -56,7 +54,6 @@ module.exports = {
           template: path.join(SOURCE_PATH, 'index.html')
         }),
         new CopyWebpackPlugin([
-          {from: 'audio', to: 'audio'},
           {from: 'lib', to: 'lib'},
           {from: 'fonts', to: 'fonts'},
           {from: 'images', to: 'images'}

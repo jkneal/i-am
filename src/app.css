@@ -39,3 +39,42 @@ body {
   padding: 1rem 2rem;
 }
 
+.footer_email {
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+
+.footer a {
+  color:#87929f;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+.header_by {
+  text-align: right;
+}
+
+.header_song {
+  font-size: .95em;
+}
+
+.header_name {
+  color: white;
+}
+
+.footer {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color:#87929f;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.video-react .video-react-big-play-button {
+  background-color: none;
+  background: none;
+}

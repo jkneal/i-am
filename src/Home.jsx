@@ -1,58 +1,27 @@
 import React from 'react'
-import Reflux from 'reflux'
-import {Panel} from 'react-bootstrap'
-import MediaQuery from 'react-responsive'
+import { Player, BigPlayButton } from 'video-react'
 
-import appStore from './app-store'
+import brickWallImg from './images/brick-wall.jpg'
 
-import PatternList from './layout/PatternList'
-import PatternListMobile from './layout/PatternListMobile'
-import PatternViewer from './layout/PatternViewer'
-import SongExamples from './layout/SongExamples'
-import PatternControls from './layout/PatternControls'
-import AudioPlayer from './components/AudioPlayer'
-
-export default React.createClass({
-  
-    mixins: [Reflux.connect(appStore, 'appData')],
-  
-    render: function() {
-      if (!(this.state && this.state.appData)) {
-        return null
-      }
-  
-      const {patternGroups, loadedPattern, loadedPatternOptions} = this.state.appData
-
-      return (
-        <Panel className="pattern-container">
-          <MediaQuery minWidth={620}>
-            <PatternList patternGroups={patternGroups} loadedPattern={loadedPattern}/>
-          </MediaQuery>
-
-          <MediaQuery maxWidth={620}>
-            <PatternListMobile patternGroups={patternGroups} loadedPattern={loadedPattern}/>
-          </MediaQuery>
-
-          <div className="pattern-main-wrapper">
-            <div className="pattern-main">   
-              <PatternViewer pattern={loadedPattern}/>
-              <MediaQuery minWidth={850}>
-                <div className="pattern-samples-wrapper">
-                    <SongExamples examples={loadedPattern.examples}/>
-                </div>
-              </MediaQuery>
-            </div>
-
-            <PatternControls pattern={loadedPattern} patternOptions={loadedPatternOptions}/>
-
-            <MediaQuery maxWidth={850}>
-                <div className="pattern-samples-wrapper-bottom">
-                    <SongExamples examples={loadedPattern.examples}/>
-                </div>
-            </MediaQuery>
-          </div>
-        </Panel>
-      )
-    }
-
-  })
+export default () => (
+  <div>
+    <div className="header">
+      <h1>I Am</h1>
+      <div className="header_by">
+        Rudimental Snare Solo by <span className="header_name">Jerry Neal</span> 
+        <br/><span className="header_song">Song by <span className="header_name">Critters Buggin</span></span>
+      </div>
+    </div>
+    <Player
+      playsInline
+      poster="/images/brick-wall.jpg"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+      <BigPlayButton position="center" />
+    </Player>
+    <div className="footer">
+        {/* <i className="fa fa-headphones" aria-hidden="true"></i> Audio Note: For the best experience, use good headphones! */}
+        <a href="#"><i className="far fa-file-pdf" aria-hidden="true"></i> Download Solo</a>
+        <span className="footer_email"><a href="#"><i className="fas fa-envelope" aria-hidden="true"></i> Email</a></span>
+    </div>
+  </div>
+)
